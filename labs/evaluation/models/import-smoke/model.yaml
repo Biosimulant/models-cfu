@@ -1,0 +1,73 @@
+schema_version: '2.0'
+package: cfu-inference-import-software-check
+version: 0.1.0
+title: CFU Inference Import Software Check
+description: CPU-only compatibility check of verified native YOLOX and SAHI source
+  with synthetic software fixtures; no colony images, learned weights or performance
+  claim.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.smoke:CheckInferenceImports
+  execution_policy: once_before_run
+  communication_step: 0.01
+io:
+  inputs:
+  - name: source_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: source_receipt
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: sahi_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: sahi_receipt
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  outputs:
+  - name: receipt
+    signal_type: record
+    schema:
+      stage: str
+      checks: json
+      environment: json
+      sources: json
+      dependency_license: json
+      scientific_acceptance_established: bool
+      test_outcomes_inspected: bool
+      synthetic_software_fixtures_only: bool
+    emitted_unit: '1'
+  - name: receipt_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - torch==2.6.0
+    - torchvision==0.21.0
+    - numpy==1.26.4
+    - Pillow==12.1.0
+    - opencv-python-headless==4.10.0.84
+    - loguru==0.7.3
+    - psutil==7.0.0
+    - packaging==24.2
+    - tabulate==0.9.0
+    - requests==2.32.5
+    - shapely==2.1.1
+    - tqdm==4.67.1
+    - pybboxes==0.1.6
+  remote:
+    requirements:
+      accelerator: cpu

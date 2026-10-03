@@ -1,0 +1,182 @@
+{
+  "authored_code": {
+    "src/__init__.py": {
+      "sha256": "4c20258130fe034d3b7e2b1ff5bb4aa114e74a0de8ba999aebabc3f10fcc2d65",
+      "size_bytes": 80
+    },
+    "src/area_filter.py": {
+      "sha256": "b0949a6368e059935c583ff0f05e56413957ea695b1399e01ae4f799aa31fe83",
+      "size_bytes": 1735
+    },
+    "src/contract.py": {
+      "sha256": "5460dbea3c227029eb536f223c19d936335ba4c3d8f0a79713866da1b74e27c8",
+      "size_bytes": 2722
+    },
+    "src/hosted_source.py": {
+      "sha256": "6cf5b7567a089a935c9a5390e73a384873c2d573bc8cac84e80fbcabf0787136",
+      "size_bytes": 3102
+    },
+    "src/image.py": {
+      "sha256": "69bf26799c6050dfbee329a966fe71e69563ec7482d04bc67490665d76aa4e23",
+      "size_bytes": 3218
+    },
+    "src/inference.py": {
+      "sha256": "fff6b7f82e345187efa215b4ea8e0a8a750718e6af3c85bdd1cdf8be6d3e8a40",
+      "size_bytes": 8008
+    },
+    "src/inference_core.py": {
+      "sha256": "85bb14be2aab8ca2f1fa95bce193ff625d441b4f8fa2cbfcd609c6e104016a73",
+      "size_bytes": 2476
+    },
+    "src/native_source.py": {
+      "sha256": "9267fa50bc9453a8be3829629a8fe62c085470ec0367eb5935b64e19b88c816f",
+      "size_bytes": 5769
+    },
+    "src/postprocess.py": {
+      "sha256": "098aea27580724bb0a432972ae1103b3f6c8c8056ab088544d76da62ff4db967",
+      "size_bytes": 975
+    },
+    "src/preprocessing.py": {
+      "sha256": "b2aa79a145c35e4f96f4a62e3fb10ec0fb9cec2da70c356f73c25337b4a98784",
+      "size_bytes": 1015
+    },
+    "src/relative_area_contract.py": {
+      "sha256": "8f5d8626e29c0c6e7c88560fa24e98db390a96db7deac585e664b1d2d53c7ef7",
+      "size_bytes": 1148
+    },
+    "src/sahi_source.py": {
+      "sha256": "2515f15e4b6f63fe5866fa9b9e0ca3feb92a4abc5690888994279f1edfe61341",
+      "size_bytes": 3659
+    },
+    "src/serving.py": {
+      "sha256": "b8a29ab60cfda61a52c451f7792381a5cfca543ba03f7512c6ad8abd2c6ac23f",
+      "size_bytes": 6150
+    },
+    "src/worker.py": {
+      "sha256": "f52f33a08ce8deacb20354f27e6ec60b16caf28426a15d8f11b3e0cb48f7a83f",
+      "size_bytes": 440
+    }
+  },
+  "batch_size": 8,
+  "configuration": {
+    "confidence": 0.4,
+    "filter": {
+      "anchor_score": 0.7,
+      "baseline_configuration_id": "tiled-GREEDYNMM-IOS-0.50-conf0.40",
+      "fallback": "No filtering below minimum anchors",
+      "minimum_anchor_count": 3,
+      "minimum_relative_area": 0.25,
+      "ratios": [
+        0.0,
+        0.1,
+        0.2,
+        0.25,
+        0.5
+      ]
+    },
+    "id": "tiled-GREEDYNMM-IOS-0.50-conf0.40-relative-area0.25",
+    "match_metric": "IOS",
+    "match_threshold": 0.5,
+    "method": "GREEDYNMM",
+    "mode": "tiled"
+  },
+  "coordinate_basis": "EXIF-normalized original image pixels",
+  "evidence": {
+    "approved_p95_limit": 20,
+    "final_test_p95_symmetric_error": 22.22222222222222,
+    "final_test_run": "76c52ab5-f41c-4a47-ba48-83eeb07f5265",
+    "independent_training_recreation_completed": false,
+    "original_scientific_gates_passed": false,
+    "pretest_lock": {
+      "sha256": "6d77d1d42ff981b9fd690e4a53b4c600fe520275c92281533ab32f6e4c3a4fd6",
+      "size_bytes": 759387
+    },
+    "research_release": "demi/cfu-counting-recorded-training-and-evaluation@0.2.0"
+  },
+  "format": "cfu-locked-inference-release-v2-relative-area",
+  "input_size": 640,
+  "maximum_candidates": 20000,
+  "minimum_confidence": 0.05,
+  "overlap": 0.2,
+  "required_environment": {
+    "cuda_build": "12.4",
+    "cudnn": 90100,
+    "numpy": "1.26.4",
+    "python": "3.12.3",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124"
+  },
+  "required_package_versions": {
+    "Pillow": "12.1.0",
+    "biosimulant": "0.0.34",
+    "loguru": "0.7.3",
+    "numpy": "1.26.4",
+    "opencv-python-headless": "4.10.0.84",
+    "packaging": "24.2",
+    "psutil": "7.0.0",
+    "pybboxes": "0.1.6",
+    "requests": "2.32.5",
+    "shapely": "2.1.1",
+    "tabulate": "0.9.0",
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "tqdm": "4.67.1"
+  },
+  "sahi_archive": {
+    "file_id": "ecf9dd7b-7cb0-4366-ab48-ce7c337c2fdd",
+    "sha256": "31fa3dab37284e5cf0e404e74505781523a7faab59f9b2e1f847a436d9b6cf11",
+    "size_bytes": 114361
+  },
+  "sahi_receipt": {
+    "file_id": "c019c9a2-d0c2-4b34-a2e2-b54649748f72",
+    "sha256": "43cf50681fbdacd5aa4c8216516c30b5a5b1e2fce78e6e065b6e64715335489a",
+    "size_bytes": 11972
+  },
+  "source_archive": {
+    "file_id": "04835e52-0d4c-4755-9905-fe9762a81469",
+    "sha256": "12871d9c8e7d3f45e67995bfec9a175b9f27496741ef197a604c0653670ae4dc",
+    "size_bytes": 111995
+  },
+  "source_receipt": {
+    "file_id": "ebf469d5-c37c-49b8-9638-131261aa3b56",
+    "sha256": "03cd32cc8b56f144d9f63e173e5b28826af2c401def5a94af9d56f38b1248349",
+    "size_bytes": 63830
+  },
+  "training_contract_sha256": "eead396e3e5b99e6241fb4b2e78b81d7ba1f0470b35335434429ffac9fdbf14a",
+  "training_pool_sha256": "ab8c4262775aca921e72bd5fef23ac20fbd860f2de1a4640910fae2b5c25d273",
+  "training_recipe": {
+    "amp_growth_interval": 1000000,
+    "amp_initial_scale": 128,
+    "architecture": "single-class native YOLOX-Tiny depth0.33 width0.375",
+    "augmentation": "verified native augment_hsv and horizontal mirror probability0.5; preserve every crop target",
+    "augmentation_seed": "cfu-training-augmentation-v1",
+    "batch_size": 16,
+    "ema_decay": 0.9998,
+    "epoch_order": "cfu-epoch-order-v1",
+    "initialization": "random; no third-party checkpoint",
+    "input_size": 640,
+    "lr_schedule": "native yoloxwarmcos; warmup1epoch, min_lr_ratio0.05, last5epochs no augmentation/L1",
+    "max_epochs": 60,
+    "optimizer": "native Exp.get_optimizer SGD momentum0.9 nesterov weight_decay0.0005",
+    "precision": "amp_float16",
+    "required_environment": {
+      "cuda_build": "12.4",
+      "cudnn": 90100,
+      "numpy": "1.26.4",
+      "python": "3.12.3",
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124"
+    },
+    "seed": 20261001
+  },
+  "weights": {
+    "file_id": "f9ebd293-b3f8-4314-9c54-bcd2dcfbdd82",
+    "sha256": "27068af634b80c51d3c318d8fd7e8c1d79269fa00ce62b557f5b9cf3e5d9cd90",
+    "size_bytes": 20372446
+  },
+  "weights_progress": {
+    "cursor": 1456,
+    "epoch": 30,
+    "global_step": 18601
+  }
+}

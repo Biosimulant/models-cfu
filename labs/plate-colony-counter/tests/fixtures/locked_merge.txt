@@ -1,0 +1,10 @@
+"""Exact final-test merge function from recorded staging revision ff7d9dd."""
+def merge(values, config, width, height, ObjectPrediction, NMSPostprocess, GreedyNMMPostprocess):
+    selected = [v for v in values if v['score'] >= config['confidence']]
+    if not selected:return []
+    objects = [ObjectPrediction(bbox=v['bbox_xyxy'],category_id=0,category_name='colony',
+                                score=v['score'],shift_amount=[0,0],full_shape=[height,width]) for v in selected]
+    cls = NMSPostprocess if config['method'] == 'NMS' else GreedyNMMPostprocess
+    merged = cls(match_threshold=config['match_threshold'],match_metric=config['match_metric'],class_agnostic=True)(objects)
+    detections = canonical_detections([{'bbox_xyxy':v.bbox.to_xyxy(), 'score':v.score.value} for v in merged],width,height)
+    return apply_config_filter(detections, config)

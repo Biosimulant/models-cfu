@@ -1,0 +1,143 @@
+schema_version: '2.0'
+package: cfu-adbc-training-preparation
+version: 0.2.0
+title: ADBC Frozen Training/Validation Tile Preparation
+description: Consume exact retained original Files in bounded batches and preserve
+  frozen groups/splits and source boxes. No test target preparation.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.prepare:PrepareADBCTiles
+  execution_policy: once_before_run
+  communication_step: 0.01
+parameters:
+- name: batch_index
+  value: 0
+  min: 0
+  max: 21
+  description: Exact immutable original-image preparation batch; batch0 is the readiness
+    pilot.
+io:
+  inputs:
+  - name: frozen_split
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: annotations
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: image_00
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_01
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_02
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_03
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_04
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_05
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_06
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_07
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_08
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_09
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_10
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_11
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_12
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_13
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_14
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  - name: image_15
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+    required: false
+  outputs:
+  - name: tiles_archive_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: prepared_manifest_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - Pillow==12.1.0

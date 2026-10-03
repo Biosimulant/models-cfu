@@ -1,0 +1,30 @@
+schema_version: '2.0'
+package: cfu-yolox-upstream-source-records
+version: 0.1.0
+title: YOLOX Official Source Records
+description: Retain the pinned repository license/readme and a bounded official release snapshot before choosing starting weights.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.upstream:CollectYOLOXSources
+  execution_policy: once_before_run
+  communication_step: 0.01
+io:
+  inputs: []
+  outputs:
+  - name: archive_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Official UTF8 source records and their captured manifest; no weight bytes.
+  - name: manifest_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+    description: Source identities and actual release assets; not a weight-license decision.
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34

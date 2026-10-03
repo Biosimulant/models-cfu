@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "purpose": "Bounded GPU compatibility and dense-crop throughput; not accuracy qualification",
+  "preparation_batch": 12,
+  "archive": {
+    "artifact_id": "prepare-tiles-archive-path-4c1a53a685198ec4",
+    "file_id": "35ddc4fa-94ad-4ebe-96bd-f9f8c6c00348",
+    "manifest": {
+      "sha256": "960e0021c3c9edb199f21e91f8e9b832f19e92b8a2d00b4a6cc677479f5cf7b4",
+      "size_bytes": 1983222
+    },
+    "run_id": "d8958a32-5ebd-41e1-9d6a-8afe6befee40",
+    "sha256": "ccc74ffcded66d5bdb636f117e6592120478baedba45cc80bc26c7c15db95f89",
+    "size_bytes": 59256615
+  },
+  "manifest": {
+    "sha256": "960e0021c3c9edb199f21e91f8e9b832f19e92b8a2d00b4a6cc677479f5cf7b4",
+    "size_bytes": 1983222
+  },
+  "frozen_split": {
+    "file_id": "b051e199-7f91-451b-b9b2-8a0086f0c460",
+    "sha256": "81156e7833415b05b39659828d3fc4b8b006b6f2b24e1d4665de654efae6ae3f",
+    "size_bytes": 237988
+  },
+  "frozen_dataset_id": "5b42deb2-d377-42ef-9a7a-b94b6c20426a",
+  "frozen_dataset_sha256": "c36c76f78737bb2fe5b23d5da0a7403b16d6eab734e1015bc621effadbad88aa",
+  "source_archive": {
+    "file_id": "893235b1-3768-4938-955d-a3a8fade68c6",
+    "size_bytes": 4507433,
+    "sha256": "647bba7d16cc7e13feb5f2beca0296f86186c944f5a8fa9ccefc2629758bccba"
+  },
+  "source_receipt": {
+    "file_id": "9be541e9-7224-416f-8b1f-ca3ef6d5d6d8",
+    "size_bytes": 36374,
+    "sha256": "994c43d110e431f124bb83e8d4934d026ac58cfcb640463707600222b8e2c118"
+  },
+  "requested_managed_timeout_seconds": 600,
+  "internal_deadline_seconds": 480,
+  "required_accelerator": "gpu",
+  "scientific_acceptance_established": false
+}

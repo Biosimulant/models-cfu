@@ -1,0 +1,30 @@
+schema_version: '2.0'
+package: cfu-yolox-native-source
+version: 0.1.1
+title: CFU Native Detector Source Acquisition
+description: Retain exact commit-pinned YOLOX code and primary-license identities for recorded training. Do not fetch third-party starting checkpoints.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.code:AcquireNativeSource
+  execution_policy: once_before_run
+  communication_step: 0.01
+io:
+  inputs: []
+  outputs:
+  - name: source_archive_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Original pinned native source archive, retained without execution.
+  - name: source_manifest_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+    description: Acquisition receipt with explicit source-inspection status; failed inspection blocks downstream use.
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34

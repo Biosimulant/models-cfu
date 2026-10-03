@@ -1,0 +1,75 @@
+schema_version: '2.0'
+package: cfu-native-gpu-benchmark
+version: 0.1.0
+title: CFU Native GPU Training Benchmark
+description: Measure native YOLOX-Tiny training compatibility and dense-crop throughput
+  from pinned original source and retained training crops. No accuracy qualification.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.benchmark:BenchmarkNativeDetector
+  execution_policy: once_before_run
+  communication_step: 0.01
+parameters:
+- name: timed_steps
+  value: 12
+  min: 4
+  max: 30
+  description: Timed optimizer steps per batch size, following two warmup steps
+- name: precision
+  value: float32
+  allowed_values:
+  - float32
+  - amp_float16
+  description: Measured float32 baseline or native CUDA autocast with checked unscaled
+    gradients
+io:
+  inputs:
+  - name: source_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: source_receipt
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: prepared_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: frozen_split
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  outputs:
+  - name: receipt
+    signal_type: record
+    schema:
+      stage: str
+      source: json
+      environment: json
+      cases: json
+      training_steps_executed: int
+      test_outcomes_inspected: bool
+      scientific_acceptance_established: bool
+    emitted_unit: '1'
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - torch==2.6.0
+    - torchvision==0.21.0
+    - numpy==1.26.4
+    - Pillow==12.1.0
+    - opencv-python-headless==4.11.0.86
+    - loguru==0.7.3
+    - psutil==7.0.0
+    - packaging==24.2
+    - tabulate==0.9.0
+  remote:
+    requirements:
+      accelerator: gpu

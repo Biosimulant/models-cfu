@@ -1,0 +1,234 @@
+schema_version: '2.0'
+package: cfu-frozen-native-training
+version: 0.1.0
+title: CFU Frozen Native Training
+description: Finite full frozen training task with checked model/optimizer/EMA checkpoint
+  trajectory. No accuracy qualification.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.training:TrainNativeDetector
+  execution_policy: once_before_run
+  communication_step: 0.01
+parameters:
+- name: work_seconds
+  value: 300
+  min: 60
+  max: 1500
+  description: Internal bounded work time; emit state before managed wall-clock timeout
+- name: checkpoint_sha256
+  value: ''
+  description: Exact retained checkpoint byte digest; empty for fresh training
+- name: checkpoint_size_bytes
+  value: 0
+  min: 0
+  max: 67108864
+- name: weights_sha256
+  value: ''
+  description: Exact checkpoint-bound retained EMA weight digest; empty for fresh
+    training
+- name: weights_size_bytes
+  value: 0
+  min: 0
+  max: 67108864
+io:
+  inputs:
+  - name: source_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: source_receipt
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: frozen_split
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: prepared_verification
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: archive_00
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_01
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_02
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_03
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_04
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_05
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_06
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_07
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_08
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_09
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_10
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_11
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_12
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_13
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_14
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_15
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_16
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_17
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_18
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_19
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_20
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: archive_21
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: checkpoint
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: pth
+    required: false
+  - name: weights
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: pth
+    required: false
+  outputs:
+  - name: receipt
+    signal_type: record
+    schema:
+      stage: str
+      source: json
+      contract_sha256: str
+      training_pool: json
+      environment: json
+      recipe: json
+      start_progress: json
+      end_progress: json
+      steps_executed: int
+      full_recipe_completed: bool
+      crops_consumed: int
+      actual_optimizer_seconds: float
+      end_to_end_crops_per_second: float
+      targets_truncated: int
+      weights_changed: bool
+      peak_cuda_allocated_bytes: int
+      peak_cuda_reserved_bytes: int
+      last_losses: json
+      saved_artifacts: json
+      test_outcomes_inspected: bool
+      scientific_acceptance_established: bool
+    emitted_unit: '1'
+  - name: checkpoint_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: pth
+  - name: weights_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: pth
+  - name: history_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - torch==2.6.0
+    - torchvision==0.21.0
+    - numpy==1.26.4
+    - Pillow==12.1.0
+    - opencv-python-headless==4.11.0.86
+    - loguru==0.7.3
+    - psutil==7.0.0
+    - packaging==24.2
+    - tabulate==0.9.0
+  remote:
+    requirements:
+      accelerator: gpu

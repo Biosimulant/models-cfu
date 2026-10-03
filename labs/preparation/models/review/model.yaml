@@ -1,0 +1,123 @@
+schema_version: '2.0'
+package: cfu-adbc-duplicate-review
+version: 0.1.1
+title: ADBC Original Photograph Duplicate Review
+description: Verify retained JPEG originals up to 40 million pixels and identify
+  perceptual duplicate candidates before tiling; do not read held-out labels.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.review:ReviewADBC
+  execution_policy: once_before_run
+  communication_step: 0.01
+io:
+  inputs:
+  - name: archive_0
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 0.
+  - name: archive_1
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 1.
+  - name: archive_2
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 2.
+  - name: archive_3
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 3.
+  - name: archive_4
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 4.
+  - name: archive_5
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 5.
+  - name: archive_6
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 6.
+  - name: archive_7
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 7.
+  - name: archive_8
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 8.
+  - name: archive_9
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 9.
+  - name: archive_10
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 10.
+  - name: archive_11
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 11.
+  - name: archive_12
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 12.
+  - name: archive_13
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 13.
+  - name: archive_14
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 14.
+  - name: archive_15
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    description: Retained checksum-pinned acquisition batch 15.
+  outputs:
+  - name: review_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+    description: Original image identities and duplicate review candidates; never
+      automatic training approval.
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - Pillow==12.1.0

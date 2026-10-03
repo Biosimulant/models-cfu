@@ -1,0 +1,30 @@
+schema_version: '2.0'
+package: cfu-adbc-original-split
+version: 0.1.0
+title: ADBC Original Photograph Split Freeze
+description: Freeze prespecified whole-original partitions while preserving every source group, byte duplicate and review candidate component. No annotation outcomes are parsed.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.split:FreezeADBCSplit
+  execution_policy: once_before_run
+  communication_step: 0.01
+io:
+  inputs:
+  - name: review_report
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+    description: Exact retained managed duplicate-review artifact.
+  outputs:
+  - name: split_manifest_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+    description: Frozen original members, related-image groups, source identities and native dataset registration manifest.
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34

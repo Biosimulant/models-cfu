@@ -1,0 +1,325 @@
+schema_version: '2.0'
+package: cfu-locked-native-evaluation
+version: 0.1.0
+title: CFU Locked Original-Image Evaluation
+description: Single frozen test configuration, saved-model replay and separately recorded
+  recreation evaluation; no public scientific qualification is self-certified.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.qualification:QualifyNativeDetector
+  execution_policy: once_before_run
+  communication_step: 0.01
+parameters:
+- name: phase
+  value: primary
+- name: weights_sha256
+  value: ''
+- name: weights_size_bytes
+  value: 0
+  min: 0
+  max: 67108864
+- name: lock_sha256
+  value: ''
+- name: lock_size_bytes
+  value: 0
+  min: 0
+  max: 8388608
+- name: lock_digest
+  value: ''
+- name: baseline_sha256
+  value: ''
+- name: baseline_size_bytes
+  value: 0
+  min: 0
+  max: 67108864
+- name: work_seconds
+  value: 1200
+  min: 60
+  max: 1500
+io:
+  inputs:
+  - name: source_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: source_receipt
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: sahi_archive
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: sahi_receipt
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: frozen_split
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: annotations
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: weights
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: pth
+  - name: image_00
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_01
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_02
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_03
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_04
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_05
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_06
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_07
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_08
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_09
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_10
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_11
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_12
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_13
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_14
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_15
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_16
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_17
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_18
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_19
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_20
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_21
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_22
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_23
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_24
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_25
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_26
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_27
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_28
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_29
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_30
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_31
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_32
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_33
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_34
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_35
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: image_36
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: jpg
+  - name: test_lock
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: baseline
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+    required: false
+  outputs:
+  - name: receipt
+    signal_type: record
+    schema:
+      stage: str
+      phase: str
+      lock_digest: str
+      plate_count: int
+      weights: json
+      environment: json
+      configuration: json
+      metrics: json
+      comparison: json
+      final_test_completed: bool
+      test_outcomes_inspected: bool
+      scientific_acceptance_established: bool
+      artifacts: json
+    emitted_unit: '1'
+  - name: cache_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: predictions_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: comparison_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - torch==2.6.0
+    - torchvision==0.21.0
+    - numpy==1.26.4
+    - Pillow==12.1.0
+    - opencv-python-headless==4.10.0.84
+    - loguru==0.7.3
+    - psutil==7.0.0
+    - packaging==24.2
+    - tabulate==0.9.0
+    - requests==2.32.5
+    - shapely==2.1.1
+    - tqdm==4.67.1
+    - pybboxes==0.1.6
+  remote:
+    requirements:
+      accelerator: gpu

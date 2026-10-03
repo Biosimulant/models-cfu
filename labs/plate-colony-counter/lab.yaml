@@ -1,0 +1,96 @@
+schema_version: '2.0'
+package: plate-colony-counter
+version: 0.1.1
+title: Plate Colony Counter
+description: Upload one plate photograph to obtain an experimental visible-colony
+  count, annotated image and full detection receipt. Human review required; original
+  per-plate accuracy gate failed.
+license: MIT
+models:
+- alias: detector
+  path: models/native
+  parameters:
+    contract_sha256: 18deb9b8a8982f01cf4db749c5bbcdd4ec34af7dc681d9724017cb9ffd3cd794
+    contract_size_bytes: 6122
+    work_seconds: 180
+wiring: []
+io:
+  inputs:
+  - name: image
+    maps_to: detector.image
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: image
+    description: One JPEG or PNG plate photograph, at most 20 MiB and 25 million pixels.
+  outputs:
+  - name: count
+    maps_to: detector.count
+    signal_type: scalar
+    dtype: int
+    emitted_unit: '1'
+  - name: annotated_image
+    maps_to: detector.annotated_path
+    value_type: file
+    format: png
+  - name: receipt
+    maps_to: detector.receipt
+    signal_type: record
+    emitted_unit: '1'
+runtime:
+  python_version: '3.12'
+  duration: 0.01
+  communication_step: 0.01
+  settle_steps: 1
+  initial_inputs: {}
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - torch==2.6.0
+    - torchvision==0.21.0
+    - numpy==1.26.4
+    - Pillow==12.1.0
+    - opencv-python-headless==4.10.0.84
+    - loguru==0.7.3
+    - psutil==7.0.0
+    - packaging==24.2
+    - tabulate==0.9.0
+    - requests==2.32.5
+    - shapely==2.1.1
+    - tqdm==4.67.1
+    - pybboxes==0.1.6
+  remote:
+    requirements:
+      accelerator: gpu
+hardware:
+  compute_class: gpu
+intended_use:
+  statement: Experimental counting of visible colonies in ADBC-compatible plate photographs;
+    mandatory human review.
+caveats:
+- Experimental research assistance; inspect every outlined detection before using
+  the count.
+- 'The fixed held-out test failed the approved p95 count-error gate: 22.2222% versus
+  20%. Aggregate error was 2.9022%, precision 91.4467%, recall 92.4169%; this does
+  not establish scientific qualification.'
+- New laboratories, acquisition conditions, blank plates and merged growth are unvalidated.
+  Detector scores are not calibrated uncertainty.
+- No species identification, CFU/mL, clinical or sterility decisions. Independent
+  training recreation remains incomplete.
+- The opened final test will not be used for retuning or model selection. Serving
+  parity checks only verify preservation of its fixed detections.
+prohibited_claims:
+- Clinically validated counting
+- Species identification
+- CFU/mL
+- Sterility decisions
+- Passing original scientific release gates
+visualization:
+  schema_version: '1'
+  required:
+  - module: detector
+    render: image
+    min_count: 1
+  - module: detector
+    render: text
+    min_count: 1

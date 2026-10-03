@@ -1,0 +1,80 @@
+{
+  "source_archive": {
+    "file_id": "893235b1-3768-4938-955d-a3a8fade68c6",
+    "size_bytes": 4507433,
+    "sha256": "647bba7d16cc7e13feb5f2beca0296f86186c944f5a8fa9ccefc2629758bccba"
+  },
+  "source_receipt": {
+    "file_id": "9be541e9-7224-416f-8b1f-ca3ef6d5d6d8",
+    "size_bytes": 36374,
+    "sha256": "994c43d110e431f124bb83e8d4934d026ac58cfcb640463707600222b8e2c118"
+  },
+  "sahi_archive": {
+    "file_id": "ecf9dd7b-7cb0-4366-ab48-ce7c337c2fdd",
+    "size_bytes": 114361,
+    "sha256": "31fa3dab37284e5cf0e404e74505781523a7faab59f9b2e1f847a436d9b6cf11"
+  },
+  "sahi_receipt": {
+    "file_id": "c019c9a2-d0c2-4b34-a2e2-b54649748f72",
+    "size_bytes": 11972,
+    "sha256": "43cf50681fbdacd5aa4c8216516c30b5a5b1e2fce78e6e065b6e64715335489a"
+  },
+  "required_package_versions": {
+    "biosimulant": "0.0.34",
+    "torch": "2.6.0",
+    "torchvision": "0.21.0",
+    "numpy": "1.26.4",
+    "Pillow": "12.1.0",
+    "opencv-python-headless": "4.10.0.84",
+    "loguru": "0.7.3",
+    "psutil": "7.0.0",
+    "packaging": "24.2",
+    "tabulate": "0.9.0",
+    "requests": "2.32.5",
+    "shapely": "2.1.1",
+    "tqdm": "4.67.1",
+    "pybboxes": "0.1.6"
+  },
+  "authored_code": {
+    "__init__.py": {
+      "size_bytes": 80,
+      "sha256": "4c20258130fe034d3b7e2b1ff5bb4aa114e74a0de8ba999aebabc3f10fcc2d65"
+    },
+    "core.py": {
+      "size_bytes": 6281,
+      "sha256": "d54638bb0bb7e99750b4e16961a8381a5e0ed3b69fc3501075a0ec061ba46f58"
+    },
+    "geometry.py": {
+      "size_bytes": 11057,
+      "sha256": "8c1124215fc6aeb504b10e4ba499778f44c52f92753ba96b77317038f1968240"
+    },
+    "metrics.py": {
+      "size_bytes": 14080,
+      "sha256": "c05d24fcf8fdcec0748dd231b984b5d6c63cf9377216ea2005ad732837bbdb2b"
+    },
+    "native_source.py": {
+      "size_bytes": 5769,
+      "sha256": "9267fa50bc9453a8be3829629a8fe62c085470ec0367eb5935b64e19b88c816f"
+    },
+    "preprocessing.py": {
+      "size_bytes": 1015,
+      "sha256": "b2aa79a145c35e4f96f4a62e3fb10ec0fb9cec2da70c356f73c25337b4a98784"
+    },
+    "sahi_source.py": {
+      "size_bytes": 3659,
+      "sha256": "2515f15e4b6f63fe5866fa9b9e0ca3feb92a4abc5690888994279f1edfe61341"
+    },
+    "smoke.py": {
+      "size_bytes": 2929,
+      "sha256": "bff84a548831a53b1be9e3abbd1a8788e783ed63f70a6b36d8297ffab524e5b5"
+    },
+    "validation_lib.py": {
+      "size_bytes": 12611,
+      "sha256": "8d166a992ac9309284e85d3f99e55861ad6317746775e4923de1d95d4561443e"
+    },
+    "worker.py": {
+      "size_bytes": 6163,
+      "sha256": "6a08232d8386b27524e55f9b2c8aa17049b00e588f27a71a630ab309ecd94854"
+    }
+  }
+}

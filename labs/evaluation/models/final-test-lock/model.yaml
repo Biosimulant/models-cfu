@@ -1,0 +1,74 @@
+schema_version: '2.0'
+package: cfu-validation-selected-final-test-lock
+version: 0.1.0
+title: CFU Validation Selected Final Test Lock
+description: Freeze a passing validation-selected configuration, exact weights, future
+  evaluation code and all37 frozen test identities before any test outcome access.
+  Recompute metrics from all32 retained validation configurations.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.freeze:FreezeFinalTest
+  execution_policy: once_before_run
+  communication_step: 0.01
+parameters:
+- name: validation_origin_json
+  description: Exact bounded JSON metadata independently read back through native
+    account MCP before preparing a run.
+  value: ''
+- name: weights_file_json
+  description: Exact bounded JSON metadata independently read back through native
+    account MCP before preparing a run.
+  value: ''
+io:
+  inputs:
+  - name: frozen_split
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: comparison
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: predictions
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+  - name: weights
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: pth
+  outputs:
+  - name: receipt
+    signal_type: record
+    schema:
+      stage: str
+      lock_digest: str
+      configuration: json
+      weights: json
+      validation_origin: json
+      validation_metrics: json
+      test_plate_count: int
+      test_outcomes_inspected: bool
+      scientific_acceptance_established: bool
+      environment: json
+      artifact: json
+    emitted_unit: '1'
+  - name: lock_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - numpy==1.26.4
+    - Pillow==12.1.0
+  remote:
+    requirements:
+      accelerator: cpu

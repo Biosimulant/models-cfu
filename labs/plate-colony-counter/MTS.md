@@ -1,0 +1,11 @@
+# Plate Colony Counter technical specification
+
+One finite ONCE_BEFORE_RUN component, alias detector, maps the world image input to its typed image port and emits count, receipt and annotated image. It implements image and text v1 visuals from verified terminal outputs; visualization does not invoke the detector again. The frozen constructor pins the release contract's SHA-256 and length; callers do not supply weights or detection thresholds.
+
+Retain the selected YOLOX-Tiny EMA weights at global step 18601, pretest configuration tiled-GREEDYNMM-IOS-0.50-conf0.40-relative-area0.25, EXIF normalization, original-frame clipping, native BGR preprocessing, tile size 640, overlap 0.2, inference batch size 8 and complete post-merge relative-area filtering. Verify every source and asset byte against the release contract. The regular-file YOLOX source derivative must prove its exact original receipt and unchanged runtime code; retain Apache-2.0 upstream licenses. SAHI source is fixed at 0.11.21 (MIT). The ADBC evidence uses CC-BY-4.0.
+
+A fresh subprocess performs inference with a 180-second work bound and a 90-second collection allowance. The measured scientific environment remains Python 3.12.3, Biosimulant 0.0.34, Torch 2.6.0+cu124, torchvision 0.21.0+cu124, NumPy 1.26.4, CUDA 12.4 and cuDNN 90100. Lab runtime declares series 3.12, and the reviewed hosted recipe selects exact 3.12.3. Do not silently relax environment guards.
+
+Keep annotated output inside the run outputs tree, PNG <=768 KiB, original coordinate receipt intact, and display resized only. Verify count/detection equality, finite canonical boxes, file confinement, raw image hash/size and display dimensions before accepting worker output. Reset display state before each attempt so failure cannot show a stale success. Keep the typed receipt separate from the compact UI.
+
+Verify software contracts locally on staging without Torch checkpoint loading. Execute scientific parity only through Biosimulant managed Modal compute; independently verify retained result bytes. Public examples and experiment visibility must preserve ownership and immutable release provenance. Hosting checks must include real image upload, warm/cold execution and durable result display. No alternate-provider or production backend changes are authorized by this source revision.

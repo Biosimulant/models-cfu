@@ -1,0 +1,6 @@
+# Software fixtures only; actual detector runtime is pinned in lab.yaml.
+biosimulant==0.0.34
+numpy==1.26.4
+Pillow==12.1.0
+PyYAML==6.0.3
+pytest==9.0.2

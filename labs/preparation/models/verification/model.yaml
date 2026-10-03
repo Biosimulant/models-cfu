@@ -1,0 +1,75 @@
+schema_version: '2.0'
+package: cfu-independent-archive-verification
+version: 0.1.0
+title: ADBC Independent Prepared Archive Verification
+description: Verify retained crop archives against frozen original identities and
+  unmodified original labels. No training or accuracy claim.
+standard: other
+license: MIT
+biosim:
+  entrypoint: src.verify:VerifyPreparedArchives
+  execution_policy: once_before_run
+  communication_step: 0.01
+parameters:
+- name: verification_batch
+  value: 0
+  min: 0
+  max: 5
+  description: Immutable group of at most4 retained crop archives and320MiB total
+io:
+  inputs:
+  - name: frozen_split
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: annotations
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+  - name: archive_00
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    required: false
+  - name: archive_01
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    required: false
+  - name: archive_02
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    required: false
+  - name: archive_03
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: zip
+    required: false
+  outputs:
+  - name: receipt
+    signal_type: record
+    schema:
+      stage: str
+      batches: json
+      artifact_bytes_verified: bool
+      test_outcomes_inspected: bool
+      training_executed: bool
+      scientific_acceptance_established: bool
+    emitted_unit: '1'
+  - name: tile_hash_index_path
+    signal_type: scalar
+    dtype: str
+    value_type: file
+    format: json
+runtime:
+  dependencies:
+    packages:
+    - biosimulant==0.0.34
+    - Pillow==12.1.0
