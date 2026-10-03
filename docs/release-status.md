@@ -2,6 +2,13 @@
 
 Checkpoint: 2026-10-03. These are recorded observations, not a live status page.
 
+Later checkpoint: public hosting was approved and became ready, all four
+deployment checks passed, and an actual hosted image invocation reproduced
+the seven saved detections and identical annotated PNG. See
+[public hosted verification](hosting-verification-20261003.md) for exact
+identities, artifact hashes, runtime, interface checks and limitations.
+The pending approval description below records the earlier migration state.
+
 Counter: `demi/plate-colony-counter@0.1.1`, public, package SHA-256
 `77cb99f47f032e9921ce653875a38d5dbd2b0e3757b2d322d61631a670c4d57d`.
 Lab: `fb09b12a-975a-43af-8a70-652ed2c9d362`.
