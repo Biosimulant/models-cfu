@@ -1,0 +1,88 @@
+{
+  "specification_id": "CFU-GPT-COMP-001",
+  "version": "0.1.0",
+  "status": "draft_pending_setup_and_budget_agreement",
+  "paid_execution_authorized": false,
+  "date": "2026-10-04",
+  "source_baseline_commit": "e9cd591e2bd057e71a3a0e5fd322a305c202f793",
+  "model": "gpt-6.1-sol",
+  "api": "responses",
+  "reasoning": {
+    "effort": "high"
+  },
+  "service_tier": "default",
+  "store": false,
+  "tools": [],
+  "concurrency": 1,
+  "sdk_max_retries": 0,
+  "image_detail": {
+    "proposed": "original",
+    "support_verified": false,
+    "provider_preprocessing_verified": false
+  },
+  "max_billable_input_tokens": 40000,
+  "image_bytes_verified": false,
+  "evaluator": {
+    "frozen_method": "cfu-whole-plate-metrics-v2",
+    "source_sha256": "c05d24fcf8fdcec0748dd231b984b5d6c63cf9377216ea2005ad732837bbdb2b",
+    "comparison_count_adapter": "required_not_implemented",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261001
+  },
+  "private_inventory_sha256": "e71e85294ecee15c83a30a7076434fe9514772ba5b07e2936b2d783007fed0f1",
+  "density_strata": {
+    "sparse": [
+      0,
+      30
+    ],
+    "moderate": [
+      31,
+      300
+    ],
+    "dense": [
+      301,
+      null
+    ]
+  },
+  "arms": {
+    "detector": {
+      "saved_plates": 37,
+      "new_accuracy_inferences": 0
+    },
+    "gpt_count": {
+      "development_calls": 12,
+      "test_calls": 37,
+      "additional_repeat_calls": 18,
+      "max_output_tokens": 16384
+    },
+    "gpt_localization": {
+      "development_calls": 6,
+      "test_calls": 9,
+      "max_output_tokens": 32768
+    },
+    "hybrid": {
+      "included": false
+    }
+  },
+  "budget": {
+    "currency": "USD",
+    "gpt_cap": 25,
+    "modal_provider_cap": 3,
+    "total_cap": 28,
+    "api_modeled_ceiling": 24.09248,
+    "input_reservation_price_per_million": 2.5,
+    "output_price_per_million": 10,
+    "retry_calls": 0,
+    "historical_modal_balance_reconciled": false
+  },
+  "prompt_and_schema_draft_sha256": {
+    "count-v1.txt": "f509dc4a4f77eec42ee99d0fed77dc7c9867059a45e1a5104c567c856c09555c",
+    "count-v2.txt": "2c8d462e569450437d53262d37e6413dbe301077a0a4b5a9c96f94e004342560",
+    "count.schema.json": "4e18ff85e2430c9d898253a8d1097a1ac01aec4266ac6cd64f8bc36cc10a46fb",
+    "localization-v1.txt": "80fbbc859850dc83b3341578f8880036d9522435330794ac11c705b87d886305",
+    "localization.schema.json": "ce1f4020c89dad495e0d0181b1a28d7609298d673fde72357bd2efea9eae69df"
+  },
+  "freeze_required_before_test": true,
+  "compute_plan_prepared": false,
+  "production_deployment_included": false
+}
